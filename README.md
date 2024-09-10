@@ -6,7 +6,7 @@ Access the IDE on any PC with a Browser, just by running the server on your phon
 ![Ide](./ide.png)![Android](./app.png)
 
 ### Showing Preview on Browser & Phone
-![Ide](./assets/2048-ide.PNG)![Android](./assets/2048-phone.PNG)
+![Ide](./2048.png) ![Android](./assets/2048-phone.PNG)
 
 ## Highlights
 
