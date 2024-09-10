@@ -1,23 +1,23 @@
 # Mobilecode Studio
 
-Access the IDE on any PC with a Browser, just by running the server on your phone.
+Access the IDE on any PC with a modern browser, just by running the server on your phone.
 
 ### Web IDE & Mobile app screenshots
 ![Ide](./ide.png)![Android](./app.png)
 
 ### Showing Preview on Browser & Phone
-![Ide](./2048.png) ![Android](./assets/2048-phone.PNG)
+![Ide](./2048.png)
 
 ## Highlights
 
 - Code on any Modern Web Browser.
 - Preview your Projects live on your phone and browser
-- Push your projects to GitHub
+- Push your projects to GitHub (Coming soon)
 <!--- NodeJS project support-->
 
 ## Requirements
 
-- An Android phone
+- An Android phone (Only supported on Android 7 and above)
 - A PC with a Browser version of 99+ (Preferably Chrome)
 
 
