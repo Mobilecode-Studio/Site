@@ -12,7 +12,11 @@ Access the IDE on any PC with a modern browser, just by running the server on yo
 
 - Code on any Modern Web Browser.
 - Preview your Projects live on your phone and browser
+- Markdown preview support
+- Extension support
+- Access to various themes for the IDE and editor
 - Push your projects to GitHub (Coming soon)
+- And more..
 <!--- NodeJS project support-->
 
 ## Requirements
