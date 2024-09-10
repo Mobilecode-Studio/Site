@@ -21,7 +21,7 @@ Access the IDE on any PC with a modern browser, just by running the server on yo
 
 ## Requirements
 
-- An Android phone (Only supported on Android 7 and above)
+- An Android phone (Requires Android 7.0 and up)
 - A PC with a Browser version of 99+ (Preferably Chrome)
 
 
