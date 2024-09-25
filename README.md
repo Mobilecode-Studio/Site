@@ -29,7 +29,7 @@ Access the IDE on any PC with a modern browser, just by running the server on yo
 ## Getting started
 
 <!--1. Download [MobileCodeServer](https://mobilecodeserver.org) from [PlayStore](https://play.google.com/com.distino.mobilecodeserver)-->
-1. Email mobilecodestudio+join@gmail.com, in order to be added to the testers list.
+1. Email mobilecodestudio+join@gmail.com or fill out this [form](https://forms.gle/s7MFZhDix9YXA4Q99), in order to be added to the testers list.
 1. Download Mobilecode Studio(Closed testing) from [PlayStore](https://play.google.com/store/apps/details?id=com.distino.mobilecodestudio)
 2. Connect your PC to the same network as your mobile phone
 3. Start the server
