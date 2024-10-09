@@ -38,4 +38,4 @@ Access the IDE on any PC with a modern browser, just by running the server on yo
 
 
 # Docs
-![Extensions API](./docs/extensions api.md)
+[Extensions API](./docs/extensions API.md)
