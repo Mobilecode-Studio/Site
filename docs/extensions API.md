@@ -3,26 +3,26 @@
 
 ## IDE
 
-* ### General
-    - ide.isConnected _(Boolean)_
-    - ide.isBusy _(Boolean)_
-      > Used to check if, message have been returned from the phone to browser
-    - ide.getTabLength()
-        > Returns the number of opened tabs
-    - ide.setOutput(outputName)
-        > _e.g ide.setOutput("Console")_
-    - ide.showOutput()
-    - ide.hideOutput()
-    - ide.log(msg,type)
-      - type => warn/error/success/info
-      ```
-        ide.log("log to mobile console","warn")
+### General
+- ide.isConnected _(Boolean)_
+- ide.isBusy _(Boolean)_
+  > Used to check if, message have been returned from the phone to browser
+- ide.getTabLength()
+   > Returns the number of opened tabs
+- ide.setOutput(outputName)
+  > _e.g ide.setOutput("Console")_
+- ide.showOutput()
+- ide.hideOutput()
+- ide.log(msg,type)
+  > type => warn/error/success/info
+  ```
+  ide.log("log to mobile console","warn")
       ```
 
-* ### Statusbar
-  - ide.addToStatusBar(id?string, component?object) 
+### Statusbar
+- ide.addToStatusBar(id?string, component?object) 
     ```
-        ide.addToStatusBar("MCS_UpdateBrowser", {
+     ide.addToStatusBar("MCS_UpdateBrowser", {
             view:()=>{
                 return m(".ml-2.badge.badge-warning", 
                         m("span.text-xs.z-30",[
@@ -33,7 +33,7 @@
             }
         })
     ```
-  - ide.clearStatusbar(id)
+- ide.clearStatusbar(id)
  
 
 * ### Saving
@@ -171,8 +171,8 @@ ide.isExtensionVisible(name)//Bool
 ide.getExtensionName()//return active extension 
 
 
-
-//ide.wait(function(), time) --> wait before executing next action .. removed this for the main time
+<!--
+//ide.wait(function(), time) --wait before executing next action .. removed this for the main time
 
 //Tips for extension
 1) using `const` for extension makes it private(seems for some types, it best to use `let` instead of `const`)
@@ -180,22 +180,25 @@ ide.getExtensionName()//return active extension
 - for split extensions, `main panel` can only access variables only when `var` is used
 - `Side panel` can never access a global var from `Main panel`
 - Dont allow underscore in extension names
-
+-->
 
 Help for building extensions
 ----------------------------
-dont foget to use `ide.isConnected`
+- Always remember to use `ide.isConnected`, when building extensions.
+<!-- Note that, `device.minifyJs` return boolean not the merged content-->
 
-note that:device.minifyJs return boolean not the merged content
-
-you cant use `device.replaceInFile`, to replace heavy files. ---> or probably create a function for that
-note that when  git is used, and `git.json` is large, it will taking a lot time before it loads
-- using `assets` fldr is advicable for extension with extra files. (mcs uses "assets" fldr internally)
+- It's not advicable to use `device.replaceInFile`, to replace content in heavy files.
+ <!-- or probably create a function for that
+note that when  git is used, and -->
+- When `git.json` is large, it takes a long time before it loads the ide.(Will work on a fix)
+- using `assets` folder is advicable for extension with extra files. (mcs uses "assets" fldr internally)
 
 GLOBAL VARIBLES
 ---------------
 
-`ide`
-`getIcon`
-`beautifyOptions`
+- `ide`
+- `getIcon`
+- `beautifyOptions`
+- `device`
+- `glob`
  <!--"glob","ide","device","importScript","include","aceEditor",-->
