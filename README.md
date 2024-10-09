@@ -35,3 +35,7 @@ Access the IDE on any PC with a modern browser, just by running the server on yo
 4. Start the server
 5. Enter the IP address into your Web Browser(Preferably Chrome)
 6. Start Coding⚡⚡⚡
+
+
+# Docs
+[Extensions API](docs/extensions api.md)
