@@ -6,6 +6,9 @@ These APIs are used to interact with the IDE and retrieve data.
 
  - ### General
 - ide.isConnected _(Boolean)_
+- ide.isSaved _(Boolean)_
+- ide.fontPath
+  > _Returns "__FONTS__"_
 - ide.isBusy _(Boolean)_
   > _Used to check if, message have been returned from the phone to browser_
 - ide.getTabLength()
