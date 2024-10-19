@@ -254,7 +254,7 @@ Help for building extensions
 - Always remember to use `ide.isConnected`, when building extensions.
 <!-- Note that, `device.minifyJs` return boolean not the merged content-->
 
-- It's not advicable to use `device.replaceInFile`, to replace content in heavy files.
+- It's not advisable to use `device.replaceInFile`, to replace content in heavy files.
  <!-- or probably create a function for that
 note that when  git is used, and -->
 - When `git.json` is large, it takes a long time before it loads the ide. (Will work on a fix)
