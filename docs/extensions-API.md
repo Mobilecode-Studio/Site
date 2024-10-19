@@ -4,23 +4,31 @@
 ## IDE
 These APIs are used to interact with the IDE and retrieve data.
 
-### General
+ - ### General
 - ide.isConnected _(Boolean)_
 - ide.isBusy _(Boolean)_
-  > Used to check if, message have been returned from the phone to browser
+  > _Used to check if, message have been returned from the phone to browser_
 - ide.getTabLength()
-   > Returns the number of opened tabs
+   > _Returns the number of opened tabs_
+- ide.unpackedList _(array)_
+   > _Returns list of extensions that haven't been built_
+- ide.unpackedPath
+   > _Returns unpacked path i.e "__UNPACKED__/"
+- ide.projectList  _(array)_
+   > _Returns all the files & folders in your project directory_
 - ide.setOutput(outputName)
   > _e.g ide.setOutput("Console")_
 - ide.showOutput()
 - ide.hideOutput()
 - ide.log(msg,type)
-  > type => warn/error/success/info
+  > _type => warn/error/success/info_
   ```js
     ide.log("log to mobile console","warn")
   ```
+- ide.getColorScheme()
+  > _Is current theme light/dark mode_
 
-### Statusbar
+* ### Statusbar
 - ide.addToStatusBar(id?string, component?object) 
     ```js
      ide.addToStatusBar("MCS_UpdateBrowser", {
@@ -34,13 +42,13 @@ These APIs are used to interact with the IDE and retrieve data.
             }
         })
     ```
-- ide.clearStatusbar(id)
+- ide.clearStatusbar(id?string)
  
 
 * ### Saving
     - ide.isSaved _(Boolean)_
     - ide.save() _(Function)_
-        - Saves current file that is being edited
+      > _Saves current file that is being edited_
 
 * ### Extensions(mcx)
     - ide.installExtension(pathToExtension?string) 
@@ -48,116 +56,8 @@ These APIs are used to interact with the IDE and retrieve data.
     
 * ### Extension view
     - ide.onExtensionClose = () =>{}
-    - ide.closeExtension() 
-    <!--- ide.lockExtension()-->
-    <!--    > prevent switching-->
-
-
-
-## Device
-These APIs are used to communicate with your device.
-
-* ### Saving
-  - device.saveData(key?string, value?any) _(Function)_
-    - _before release, filter the input from key & value from charcters like ',' and '+'_
-    - device.getData(key?string) _(Function)_
-     > Return saved data. 
-     ```
-        device.getData("AUTOSAkVE_DELAY").then((e)=>console.log(e))
-     ```
-
-
-* ### Files & Folders
-    - Files
-        - device.saveFile(path?string, content?string, replaceExisting? boolean)
-        - device.readFile(pathToFile)
-        ```
-          device.readFile("cv.html").then(e=>console.log(e)).catch(e=>console.error(e));
-        ```
-        - device.fileExists(pathToFile)
-        ```
-            device.fileExists("output/bundle.min.js").then((e)=>console.log(e)).catch(()=>console.error("failed"))
-        ```
-        - device.renameFile(source, destination)
-        ```
-            device.renameFile("old_name.txt","new_name.txt")
-        ```
-        - device.copyFile(source, destination, replace)
-        ```
-            device.copyFile("fldr/text.txt","text.txt").then(e=>console.log(e))
-        ```
-        - device.deleteFile(pathToFile)
-        ```
-            device.deleteFile("fldr/text.txt").then((e)=>console.log(e))
-        ```
-        - device.replaceInFile(pathToFile, oldText, newText)
-        ```
-            device.replaceInFile("text.txt","Hello John","Howdy David").then((e)=>console.log(e))
-        ```
-        <!--- device.obfuscateFile(source, destination)-->
-        - device.minifyHtml(source, destination)
-        - device.minifyCss(source, destination)
-        - device.mergeJs(source, destination)
-        - device.downloadFile(source, destination)
-        ```
-          device.downloadFile("http://sgarman.net/downloadable.txt","/").then(e=>console.log(e)).catch(e=>console.error(e));
-        ```
-       
-
-    - Folders
-        - device.zipFolder(path,name,ext,msg); 
-            - Compress a folder to a zip file  
-            - _using this automatically creates folder_
-        - device.listFolder(path)
-        ```
-            device.listFolder("/").then((e)=>console.log(e)).catch(()=>console.error("failed"))
-        ```
-        - device.folderExists(pathToFile)
-        ```
-            device.folderExists("output").then((e)=>console.log(e)).catch(()=>console.error("failed"));
-        ```
-        - device.createFolder(path)
-        ```
-            device.createFolder("new_folder").then((e)=>console.log(e)).catch(()=>console.error("failed"));
-        ```
-        - device.renameFolder(source, destination)
-        ```
-            device.renameFolder("old_name","new_name")
-        ```
-        - device.copyFolder(source, destination, replace)
-        ```
-            device.copyFolder("fldr/img","img").then(e=>console.log(e))
-        ```
-        - device.deleteFolder(pathToFolder)
-        ```
-            device.deleteFolder("fldr/").then((e)=>console.log(e))
-        ```
-
-
-
-## Others
-  - glob = {}
-  - include(pathToScript)
-    > e.g include("assets/scripts/components.js").then(e=>eval(e)).catch(e=>console.error(e));
-    - > _Note: when using include,  dont forget to using a loading variable_
-  - importScript(urls?array or string)
-    - import script(s) on ide load
-    > e.g importScript("lib/require.min.js") or importScript("https://code.jquery.com/jquery-3.7.1.min.js") or importScript([ "lib/require.min.js", "https://code.jquery.com/jquery-3.7.1.min.js" ])
-  - others "Layout","CenterLayout","Button","Txt","Input"
-
-
-
-
-ide.unpackedList ? array  --> returns list
-
-ide.unpackedPath --> "%UNPACKED%/"
-
-ide.projectList  --> arr  --> returns all the folder and files in <root>
-
-    
-
-
-//used for extension, to add custom view
+    - ide.closeExtension()
+    - //used for extension, to add custom view
 ide.addExtensionOutput({
     name:"Sample",
     content:{
@@ -171,6 +71,106 @@ ide.addExtensionOutput({
 
 ide.isExtensionVisible(name)//Bool
 ide.getExtensionName()//return active extension 
+
+
+    <!--- ide.lockExtension()-->
+    <!--    > prevent switching-->
+
+
+
+## Device
+These APIs are used to communicate with your device.
+
+* ### Saving
+  - device.saveData(key?string, value?any) _(Function)_
+    <!---- _todo:filter the input from key & value from charcters like ',' and '+'_-->
+  - device.getData(key?string) _(Function)_
+     > Return saved data. 
+     ```js
+        device.getData("AUTOSAVE_DELAY").then((e)=>console.log(e))
+     ```
+
+
+* ### Files & Folders
+    - Files
+        - device.saveFile(path?string, content?string, replaceExisting? boolean)
+        - device.readFile(pathToFile)
+        ```js
+          device.readFile("cv.html").then(e=>console.log(e)).catch(e=>console.error(e));
+        ```
+        - device.fileExists(pathToFile)
+        ```js
+            device.fileExists("output/bundle.min.js").then((e)=>console.log(e)).catch(()=>console.error("failed"))
+        ```
+        - device.renameFile(source, destination)
+        ```js
+            device.renameFile("old_name.txt","new_name.txt")
+        ```
+        - device.copyFile(source, destination, replace)
+        ```js
+            device.copyFile("fldr/text.txt","text.txt").then(e=>console.log(e))
+        ```
+        - device.deleteFile(pathToFile)
+        ```js
+            device.deleteFile("fldr/text.txt").then((e)=>console.log(e))
+        ```
+        - device.replaceInFile(pathToFile, oldText, newText)
+        ```js
+            device.replaceInFile("text.txt","Hello John","Howdy David").then((e)=>console.log(e))
+        ```
+        <!--- device.obfuscateFile(source, destination)
+        - device.minifyHtml(source, destination)
+        - device.minifyCss(source, destination)
+        - device.mergeJs(source, destination)
+        - device.downloadFile(source, destination)
+        ```
+          device.downloadFile("http://sgarman.net/downloadable.txt","/").then(e=>console.log(e)).catch(e=>console.error(e));
+        ```-->
+       
+
+    - Folders
+        - device.zipFolder(path,name,ext,msg); 
+            > _Compress a folder to a zip file_
+            > _using this automatically creates folder_
+        - device.listFolder(path)
+        ```js
+            device.listFolder("/").then((e)=>console.log(e)).catch(()=>console.error("failed"))
+        ```
+        - device.folderExists(pathToFile)
+        ```js
+            device.folderExists("output").then((e)=>console.log(e)).catch(()=>console.error("failed"));
+        ```
+        - device.createFolder(path)
+        ```js
+            device.createFolder("new_folder").then((e)=>console.log(e)).catch(()=>console.error("failed"));
+        ```
+        - device.renameFolder(source, destination)
+        ```js
+            device.renameFolder("old_name","new_name")
+        ```
+        - device.copyFolder(source, destination, replace)
+        ```js
+            device.copyFolder("fldr/img","img").then(e=>console.log(e))
+        ```
+        - device.deleteFolder(pathToFolder)
+        ```js
+            device.deleteFolder("fldr/").then((e)=>console.log(e))
+        ```
+
+
+
+## Others
+  - include(pathToScript)
+    > e.g include("assets/scripts/components.js").then(e=>eval(e)).catch(e=>console.error(e));
+    - > _Note: when using include, dont forget to use a variable, to show that the file has loaded_
+  - importScript(urls?array or string)
+    > _import script(s) on ide load_
+    > _e.g importScript([ "lib/require.min.js", "https://code.jquery.com/jquery-3.7.1.min.js" ])_
+  - "Layout","CenterLayout","Button","Txt","Input"
+
+
+    
+
 
 
 <!--
