@@ -6,9 +6,8 @@ These APIs are used to interact with the IDE and retrieve data.
 
  - ### General
 - ide.isConnected _(Boolean)_
-- ide.isSaved _(Boolean)_
 - ide.fontPath
-  > _Returns "__FONTS__"_
+  > _Returns the path to editors fonts_
 - ide.isBusy _(Boolean)_
   > _Used to check if, message have been returned from the phone to browser_
 - ide.getTabLength()
@@ -16,7 +15,7 @@ These APIs are used to interact with the IDE and retrieve data.
 - ide.unpackedList _(array)_
    > _Returns list of extensions that haven't been built_
 - ide.unpackedPath
-   > _Returns unpacked path i.e "__UNPACKED__/"
+   > _Returns unpacked extension path_
 - ide.projectList  _(array)_
    > _Returns all the files & folders in your project directory_
 - ide.setOutput(outputName)
@@ -25,7 +24,7 @@ These APIs are used to interact with the IDE and retrieve data.
    ```js
        ide.registerFileType('.py', ()=>{
                try{
-                   //Function to execute file 
+                   //Function to execute any .py file 
                }catch(err){
                    //onerror
                }
@@ -46,7 +45,7 @@ These APIs are used to interact with the IDE and retrieve data.
     ```js
        ide.showMessageModal({
             title: "Modal title",
-            desc: "",
+            desc: "",//optional 
             text: "Modal content",
             yes: "Okay"
         });
@@ -69,7 +68,7 @@ These APIs are used to interact with the IDE and retrieve data.
 * ### Statusbar
 - ide.addToStatusBar(id?string, component?object) 
     ```js
-     ide.addToStatusBar("MCS_UpdateBrowser", {
+     ide.addToStatusBar("UpdateBrowser", {
             view:()=>{
                 return m(".ml-2.badge.badge-warning", 
                         m("span.text-xs.z-30",[
@@ -224,6 +223,34 @@ These APIs are used to communicate with your device.
 
 Help for building extensions
 ----------------------------
+- It's advisable to use async & await, when making many api calls.
+  ```js
+      //For example 
+      async function getDownloadFldr() {
+        try {
+          const folderExists = await device.folderExists(downloadPath);
+
+          if (!folderExists) {
+            const created = await device.createFolder(downloadPath);
+          }
+
+          const listDownloads = await device.listFolder(downloadPath);
+        
+          if(listDownloads.length > 0){
+            const allowedExtensions = [".mp3", ".ogg", ".m4a", ".wav"];
+            const filteredFiles = listDownloads.filter(file => {
+                const extension = file.toLowerCase().substring(file.lastIndexOf("."));
+                return allowedExtensions.includes(extension);
+            });
+            downloads = filteredFiles;
+          }
+         } catch (e) {
+            console.error(e);
+         }
+       }
+
+       getDownloadFldr();
+  ```
 - Always remember to use `ide.isConnected`, when building extensions.
 <!-- Note that, `device.minifyJs` return boolean not the merged content-->
 
