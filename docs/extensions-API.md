@@ -57,22 +57,21 @@ These APIs are used to interact with the IDE and retrieve data.
 * ### Extension view
     - ide.onExtensionClose = () =>{}
     - ide.closeExtension()
-    - //used for extension, to add custom view
-ide.addExtensionOutput({
-    name:"Sample",
-    content:{
-        view:()=>{
-            return m("small", "Main content zxczxvzxv");
-        }
-    }
-});
-
-
-
-ide.isExtensionVisible(name)//Bool
-ide.getExtensionName()//return active extension 
-
-
+    - ide.isExtensionVisible(name)<!--Buggy -->
+    - ide.getExtensionName()<!--Buggy -->
+      > _Returns the name of the active extension_
+    - ide.addExtensionOutput({name: OutputName, content: OutputComponent})<!--Change this later-->
+      > used for extension, to add custom view to the output panel
+      ```js
+        ide.addExtensionOutput({
+            name:"Sample",
+            content:{
+              view:()=>{
+                return m("small", "Sample content");
+              }
+            }
+        });
+       ```
     <!--- ide.lockExtension()-->
     <!--    > prevent switching-->
 
@@ -96,7 +95,7 @@ These APIs are used to communicate with your device.
         - device.saveFile(path?string, content?string, replaceExisting? boolean)
         - device.readFile(pathToFile)
         ```js
-          device.readFile("cv.html").then(e=>console.log(e)).catch(e=>console.error(e));
+          device.readFile("hello-world.html").then(e=>console.log(e)).catch(e=>console.error(e));
         ```
         - device.fileExists(pathToFile)
         ```js
@@ -174,8 +173,6 @@ These APIs are used to communicate with your device.
 
 
 <!--
-//ide.wait(function(), time) --wait before executing next action .. removed this for the main time
-
 //Tips for extension
 1) using `const` for extension makes it private(seems for some types, it best to use `let` instead of `const`)
 
@@ -192,8 +189,8 @@ Help for building extensions
 - It's not advicable to use `device.replaceInFile`, to replace content in heavy files.
  <!-- or probably create a function for that
 note that when  git is used, and -->
-- When `git.json` is large, it takes a long time before it loads the ide.(Will work on a fix)
-- using `assets` folder is advicable for extension with extra files. (mcs uses "assets" fldr internally)
+- When `git.json` is large, it takes a long time before it loads the ide. (Will work on a fix)
+- using `assets` folder is advisable for extension with extra files. (mcs uses "assets" fldr internally)
 
 GLOBAL VARIBLES
 ---------------
@@ -203,4 +200,5 @@ GLOBAL VARIBLES
 - `beautifyOptions`
 - `device`
 - `glob`
- <!--"glob","ide","device","importScript","include","aceEditor",-->
+- `aceEditor`
+ 
