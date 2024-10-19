@@ -18,6 +18,10 @@ These APIs are used to interact with the IDE and retrieve data.
    > _Returns all the files & folders in your project directory_
 - ide.setOutput(outputName)
   > _e.g ide.setOutput("Console")_
+- ide.registerFileType(type, callback)
+   ```js
+
+   ```
 - ide.showOutput()
 - ide.hideOutput()
 - ide.log(msg,type)
@@ -28,6 +32,31 @@ These APIs are used to interact with the IDE and retrieve data.
 - ide.getColorScheme()
   > _Is current theme light/dark mode_
 
+* ### Modals
+  - ide.showMessageModal(options)
+    ```js
+       ide.showMessageModal({
+            title: "Modal title",
+            desc: "",
+            text: "Modal content",
+            yes: "Okay"
+        });
+    ```
+  - ide.showConfirmationModal(options)
+    ```js
+       ide.showConfirmationModal({
+           title: "Do you want to exit?",
+           text: "All changes have been saved",
+           yes: "Yes",
+           yesClass: "btn-primary",//optional 
+           yesOnClick:()=>{
+                 //Do something 
+           }
+       });
+    ```
+  - ide.showCustomModal(options)
+  - ide.showInputModal(options)
+    
 * ### Statusbar
 - ide.addToStatusBar(id?string, component?object) 
     ```js
@@ -57,6 +86,8 @@ These APIs are used to interact with the IDE and retrieve data.
 * ### Extension view
     - ide.onExtensionClose = () =>{}
     - ide.closeExtension()
+    - ide.mountSidePanel(component)
+    - ide.mountMainPanel(component)
     - ide.isExtensionVisible(name)<!--Buggy -->
     - ide.getExtensionName()<!--Buggy -->
       > _Returns the name of the active extension_
