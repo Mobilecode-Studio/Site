@@ -20,7 +20,13 @@ These APIs are used to interact with the IDE and retrieve data.
   > _e.g ide.setOutput("Console")_
 - ide.registerFileType(type, callback)
    ```js
-
+       ide.registerFileType('.py', ()=>{
+               try{
+                   //Function to execute file 
+               }catch(err){
+                   //onerror
+               }
+        });
    ```
 - ide.showOutput()
 - ide.hideOutput()
@@ -96,6 +102,7 @@ These APIs are used to interact with the IDE and retrieve data.
       ```js
         ide.addExtensionOutput({
             name:"Sample",
+            icon: "USE A FONTAWESOME CLASS HERE",
             content:{
               view:()=>{
                 return m("small", "Sample content");
