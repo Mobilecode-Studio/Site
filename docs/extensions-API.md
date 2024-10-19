@@ -2,6 +2,7 @@
 ----------------
 
 ## IDE
+These APIs are used to interact with the IDE and retrieve data.
 
 ### General
 - ide.isConnected _(Boolean)_
@@ -15,13 +16,13 @@
 - ide.hideOutput()
 - ide.log(msg,type)
   > type => warn/error/success/info
+  ```js
+    ide.log("log to mobile console","warn")
   ```
-  ide.log("log to mobile console","warn")
-      ```
 
 ### Statusbar
 - ide.addToStatusBar(id?string, component?object) 
-    ```
+    ```js
      ide.addToStatusBar("MCS_UpdateBrowser", {
             view:()=>{
                 return m(".ml-2.badge.badge-warning", 
@@ -54,6 +55,7 @@
 
 
 ## Device
+These APIs are used to communicate with your device.
 
 * ### Saving
   - device.saveData(key?string, value?any) _(Function)_
