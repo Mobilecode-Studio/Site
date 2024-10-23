@@ -157,12 +157,13 @@ These APIs are used to communicate with your device.
         ```js
             device.replaceInFile("text.txt","Hello John","Howdy David").then((e)=>console.log(e))
         ```
+        - device.downloadFile(source, destination)
+     
         <!--- device.obfuscateFile(source, destination)
         - device.minifyHtml(source, destination)
         - device.minifyCss(source, destination)
         - device.mergeJs(source, destination)
-        - device.downloadFile(source, destination)
-        ```
+           ```
           device.downloadFile("http://sgarman.net/downloadable.txt","/").then(e=>console.log(e)).catch(e=>console.error(e));
         ```-->
        
