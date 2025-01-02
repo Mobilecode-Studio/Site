@@ -20,9 +20,12 @@ These APIs are used to interact with the IDE and retrieve data.
    > _Returns all the files & folders in your project directory_
 - ide.setOutput(outputName)
   > _e.g ide.setOutput("Console")_
-- ide.registerFileType(type, callback)
+- ide.registerFileType(type, options, callback)
    ```js
-       ide.registerFileType('.py', ()=>{
+       ide.registerFileType('py',{
+            mode:"python",
+            icon:"fab fa-python text-green-400"
+         }, ()=>{
                try{
                    //Function to execute any .py file 
                }catch(err){
