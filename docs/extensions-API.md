@@ -1,5 +1,4 @@
 # Extension API
-----------------
 
 ## IDE
 These APIs are used to interact with the IDE and retrieve data.
