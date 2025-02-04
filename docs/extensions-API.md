@@ -7,6 +7,8 @@ These APIs are used to interact with the IDE and retrieve data.
 - ide.isConnected _(Boolean)_
 - ide.fontPath
   > _Returns the path to editors fonts_
+- ide.getPath()
+  > _Returns the current directory path_
 - ide.isBusy _(Boolean)_
   > _Used to check if, message have been returned from the phone to browser_
 - ide.getTabLength()
@@ -15,6 +17,8 @@ These APIs are used to interact with the IDE and retrieve data.
    > _Returns list of extensions that haven't been built_
 - ide.unpackedPath
    > _Returns unpacked extension path_
+- ide.reloadProjectList()
+   > _Refreshes project directory_
 - ide.projectList  _(array)_
    > _Returns all the files & folders in your project directory_
 - ide.setOutput(outputName)
@@ -134,7 +138,7 @@ These APIs are used to communicate with your device.
 
 * ### Files & Folders
     - Files
-        - device.saveFile(path?string, content?string, replaceExisting? boolean)
+        - device.writeFile(path?string, content?string, replaceExisting? boolean)
         - device.readFile(pathToFile)
         ```js
           device.readFile("hello-world.html").then(e=>console.log(e)).catch(e=>console.error(e));
@@ -160,7 +164,8 @@ These APIs are used to communicate with your device.
             device.replaceInFile("text.txt","Hello John","Howdy David").then((e)=>console.log(e))
         ```
         - device.downloadFile(source, destination)
-     
+        - device.convertBlobToFile(path?string)
+        
         <!--- device.obfuscateFile(source, destination)
         - device.minifyHtml(source, destination)
         - device.minifyCss(source, destination)
@@ -208,6 +213,7 @@ These APIs are used to communicate with your device.
   - importScript(urls?array or string)
     > _import script(s) on ide load_
     > _e.g importScript([ "lib/require.min.js", "https://code.jquery.com/jquery-3.7.1.min.js" ])_
+    > Currently 'importScript' does'nt work with backtick
   - "Layout","CenterLayout","Button","Txt","Input"
 
 
