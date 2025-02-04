@@ -45,7 +45,7 @@ These APIs are used to interact with the IDE and retrieve data.
                 return m(`iframe.w-full.h-full[src=./extensions/ipynb-viewer/assets/index.html]`);
             }
         };
-        ide.registerPreviewComponent("ipynb-viewer",{ toolbar: true }, component)
+        ide.registerPreviewComponent("ipynb",{ toolbar: true }, component)
    ```
 - ide.showOutput()
 - ide.hideOutput()
