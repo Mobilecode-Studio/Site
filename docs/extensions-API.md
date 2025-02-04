@@ -291,9 +291,9 @@ GLOBAL VARIBLES
 ---------------
 
 - `ide`
+- `device`
+- `notify`
 - `getIcon`
 - `beautifyOptions`
-- `device`
 - `glob`
 - `aceEditor`
- 
