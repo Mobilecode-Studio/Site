@@ -21,6 +21,8 @@ These APIs are used to interact with the IDE and retrieve data.
    > _Refreshes project directory_
 - ide.projectList  _(array)_
    > _Returns all the files & folders in your project directory_
+- ide.getActiveFile()
+   > _Returns the name of the current file you are editing_ 
 - ide.setOutput(outputName)
   > _e.g ide.setOutput("Console")_
 - ide.registerFileType(type, options, callback)
@@ -35,6 +37,15 @@ These APIs are used to interact with the IDE and retrieve data.
                    //onerror
                }
         });
+   ```
+- ide.registerPreviewComponent(type, options, callback)
+   ```js
+       let component = {
+            view:()=>{
+                return m(`iframe.w-full.h-full[src=./extensions/ipynb-viewer/assets/index.html]`);
+            }
+        };
+        ide.registerPreviewComponent("ipynb-viewer",{ toolbar: true }, component)
    ```
 - ide.showOutput()
 - ide.hideOutput()
@@ -100,6 +111,8 @@ These APIs are used to interact with the IDE and retrieve data.
 * ### Extension view
     - ide.onExtensionClose = () =>{}
     - ide.closeExtension()
+    - ide.hideSidePanel()
+    - ide.showSidePanel()
     - ide.mountSidePanel(component)
     - ide.mountMainPanel(component)
     - ide.isExtensionVisible(name)<!--Buggy -->
@@ -134,6 +147,11 @@ These APIs are used to communicate with your device.
      ```js
         device.getData("AUTOSAVE_DELAY").then((e)=>console.log(e))
      ```
+
+* ### Device info
+  - device.getFreeSpace()
+  - device.getBatteryLevel()
+  - device.getMemoryInfo()
 
 
 * ### Files & Folders
