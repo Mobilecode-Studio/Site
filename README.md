@@ -17,9 +17,10 @@ Access the IDE on any PC with a modern browser, just by running the server on yo
 - File browser
 - Upload files to device and download from device
 - Access to various themes for the IDE and editor
-- Push your projects to GitHub (Coming soon)
+- NodeJS project support (Coming soon)
+<!--- Push your projects to GitHub (Coming soon)-->
 - And more..
-<!--- NodeJS project support-->
+
 
 ## Requirements
 
