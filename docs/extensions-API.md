@@ -152,7 +152,14 @@ These APIs are used to communicate with your device.
   - device.getFreeSpace()
   - device.getBatteryLevel()
   - device.getMemoryInfo()
+ 
 
+* ### Vibration
+  - device.vibrate(pattern)
+    > Triggers vibration
+     ```js
+        device.vibrate("0,100,30,100,50,300")
+     ```
 
 * ### Files & Folders
     - Files
