@@ -294,7 +294,7 @@ note that when  git is used, and -->
 - When `git.json` is large, it takes a long time before it loads the ide. (Will work on a fix)
 - using `assets` folder is advisable for extension with extra files. (mcs uses "assets" fldr internally)
 
-GLOBAL VARIBLES
+GLOBAL VARIABLES
 ---------------
 
 - `ide`
